@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.wqf.imports.common.ueditor.upload.StorageManager",
+      "name": "nginx",
+      "type": "com.wqf.imports.common.ueditor.upload.StorageManager"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.wqf.imports.common.ueditor.upload.StorageManager",
+      "name": "nginx.fileurl",
+      "type": "java.lang.String"
+    }
+  ]
+}

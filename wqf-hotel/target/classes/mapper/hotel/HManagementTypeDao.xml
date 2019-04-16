@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wqf.imports.hotel.dao.HManagementTypeDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.wqf.imports.hotel.entity.HManagementTypeEntity" id="hManagementTypeMap">
+        <result property="id" column="id"/>
+        <result property="tyname" column="tyname"/>
+        <result property="pid" column="pid"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.wqf.imports.hotel.entity.HManagementTypeEntity">
+		SELECT * FROM h_management_type WHERE id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.wqf.imports.hotel.entity.HManagementTypeEntity">
+		SELECT * FROM h_management_type
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                ORDER BY ${sidx} ${order}
+            </when>
+			<otherwise>
+                ORDER BY id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			LIMIT #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		SELECT count(*) FROM h_management_type
+	</select>
+	 
+	<insert id="save" parameterType="com.wqf.imports.hotel.entity.HManagementTypeEntity" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO h_management_type
+		(
+																				`tyname`, 
+																	`pid`
+									)
+		VALUES
+		(
+																				#{tyname}, 
+																	#{pid}
+									)
+	</insert>
+	 
+	<update id="update" parameterType="com.wqf.imports.hotel.entity.HManagementTypeEntity">
+		UPDATE h_management_type
+		<set>
+																				<if test="tyname != null">`tyname` = #{tyname}, </if>
+																	<if test="pid != null">`pid` = #{pid}</if>
+									</set>
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM h_management_type WHERE id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		DELETE FROM h_management_type WHERE id IN
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

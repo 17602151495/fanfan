@@ -6,15 +6,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="wzlue-common" />
-        <module name="wzlue-generator" />
-        <module name="wzlue-schedule" />
-        <module name="wzlue-sys" />
-        <module name="wzlue-web" />
+        <module name="wq-hotel" />
+        <module name="wqf-common" />
+        <module name="wqf-generator" />
+        <module name="wqf-hotel" />
+        <module name="wqf-schedule" />
+        <module name="wqf-sys" />
+        <module name="wqf-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="fanfan" target="1.8" />
+      <module name="wq-hotel" target="1.8" />
+      <module name="wqf-common" target="1.8" />
+      <module name="wqf-generator" target="1.8" />
+      <module name="wqf-hotel" target="1.8" />
+      <module name="wqf-schedule" target="1.8" />
+      <module name="wqf-sys" target="1.8" />
+      <module name="wqf-web" target="1.8" />
       <module name="wzlue-common" target="1.8" />
       <module name="wzlue-generator" target="1.8" />
       <module name="wzlue-schedule" target="1.8" />
