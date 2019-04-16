@@ -197,6 +197,7 @@ $(function () {
     table.setCodeField("menuId");
     table.setParentCodeField("parentId");
     table.setExpandAll(false);
+    table.setHeight(1500);
     table.init();
     Menu.table = table;
 });
