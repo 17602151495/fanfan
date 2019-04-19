@@ -3,28 +3,28 @@ $(function () {
         url: baseURL + 'hotel/hotel/list',
         columns: [
             {checkbox: true},
-			{ title: '店长ID', field: 'userid'}, 			
-			{ title: '店铺名字', field: 'name'}, 			
-			{ title: '联系电话', field: 'tel'}, 			
-			{ title: '店铺图片', field: 'hotelpic'}, 			
-			{ title: '店铺介绍', field: 'introduce'}, 			
-			{ title: '营业开始时间', field: 'startime'}, 			
-			{ title: '营业结束时间', field: 'endtime'}, 			
-			{ title: '省', field: 'province'}, 			
-			{ title: '市', field: 'city'}, 			
-			{ title: '县区', field: 'county'}, 			
-			{ title: '详细地址', field: 'address'}, 			
-			{ title: '经度', field: 'longitude'}, 			
-			{ title: '纬度', field: 'latitude'}, 			
-			{ title: '店铺分类（1饭店 2 酒店 3快餐店 4 食堂）', field: 'classification'}, 			
-			{ title: '经营类型（1烧烤香锅 2 休闲茶饮 3中餐地方 3.1 鲁菜）', field: 'mtype'}, 			
-			{ title: '级别 1 总店 2 分店 3 连锁店', field: 'level'}, 			
-			{ title: '经营状态（1营业中 2 暂停营业 3即将开业）', field: 'mstate'}, 			
-			{ title: '店铺状态 （正常 ，下线，欠费,违规） ', field: 'sta'}, 			
-			{ title: '', field: 'createTime'}, 			
-			{ title: '', field: 'updateTime'}, 			
-			{ title: '', field: 'createby'}, 			
-			{ title: '', field: 'updateby'}			
+			{ title: '店长ID', field: 'userid'},
+			{ title: '店铺名字', field: 'name'},
+			{ title: '联系电话', field: 'tel'},
+			{ title: '店铺图片', field: 'hotelpic'},
+			{ title: '店铺介绍', field: 'introduce'},
+			{ title: '营业开始时间', field: 'startime'},
+			{ title: '营业结束时间', field: 'endtime'},
+			{ title: '省', field: 'province'},
+			{ title: '市', field: 'city'},
+			{ title: '县区', field: 'county'},
+			{ title: '详细地址', field: 'address'},
+			{ title: '经度', field: 'longitude'},
+			{ title: '纬度', field: 'latitude'},
+			{ title: '店铺分类（1饭店 2 酒店 3快餐店 4 食堂）', field: 'classification'},
+			{ title: '经营类型（1烧烤香锅 2 休闲茶饮 3中餐地方 3.1 鲁菜）', field: 'mtype'},
+			{ title: '级别 1 总店 2 分店 3 连锁店', field: 'level'},
+			{ title: '经营状态（1营业中 2 暂停营业 3即将开业）', field: 'mstate'},
+			{ title: '店铺状态 （正常 ，下线，欠费,违规） ', field: 'sta'},
+			{ title: '', field: 'createTime'},
+			{ title: '', field: 'updateTime'},
+			{ title: '', field: 'createby'},
+			{ title: '', field: 'updateby'}
         ],
 		//条件查询
         queryParams:vm.params
@@ -39,9 +39,22 @@ var vm = new Vue({
 		params:{
 		    name:'',
 		},
-		hotel: {}
+		hotel: {},
+        dialogImageUrl: '',
+        dialogVisible: false,
+        appupdloud: baseURL +"app/fileDownload/upload",
+
 	},
 	methods: {
+
+        handleRemove:function(file, fileList) {
+            console.log(file, fileList);
+            console.log(file, fileList);
+        },
+        handlePictureCardPreview:function(file) {
+            this.dialogImageUrl = file.url;
+            this.dialogVisible = true;
+        },
 		query: function () {
 			vm.reload();
 		},

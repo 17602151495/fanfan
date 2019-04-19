@@ -5,12 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/font-awesome.min.css">
     <link rel="stylesheet" href="../../css/bootstrap-table.min.css">
     <link rel="stylesheet" href="../../plugins/bootstrap-validator/css/bootstrap-validator.min.css">
     <link rel="stylesheet" href="../../plugins/ztree/css/metroStyle/metroStyle.css">
     <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/elementui.min.css">
+    <style>
+        .text {
+            font-size: 14px;
+        }
+
+        .item {
+            padding: 20px 0;
+        }
+
+        .box-card {
+            width: 100%;
+        }
+        input[type=file] {
+            display: none;
+        }
+    </style>
 
 </head>
 <body>
@@ -56,6 +74,28 @@
     <div v-show="!showList" class="panel panel-default">
         <div class="panel-heading">{{title}}</div>
         <form class="form-horizontal">
+
+            <div class="form-group">
+                <div class="col-sm-2 control-label">店铺图片</div>
+                <div class="col-sm-10">
+                    <!--<input type="text" class="form-control" v-model="hotel.hotelpic"-->
+                    <!--placeholder="店铺图片"/>-->
+                    <el-card class="box-card">
+                        <el-upload
+                                limit=3
+                                :action=appupdloud
+                                list-type="picture-card"
+                                :on-preview="handlePictureCardPreview"
+                                :on-remove="handleRemove">
+                            <i class="el-icon-plus"></i>
+                        </el-upload>
+                        <el-dialog :visible.sync="dialogVisible" size="tiny">
+                            <img width="100%" :src="dialogImageUrl" alt="">
+                        </el-dialog>
+                    </el-card>
+                </div>
+            </div>
+
             <div class="form-group">
                 <div class="col-sm-2 control-label">店长ID</div>
                 <div class="col-sm-5">
@@ -74,18 +114,13 @@
                     <input type="text" class="form-control" v-model="hotel.tel"
                            placeholder="联系电话"/>
                 </div>
-                <div class="col-sm-2 control-label">店铺图片</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.hotelpic"
-                           placeholder="店铺图片"/>
-                </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-2 control-label">店铺介绍</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.introduce"
-                           placeholder="店铺介绍"/>
-                </div>
+                <!--<div class="col-sm-2 control-label">店铺介绍</div>-->
+                <!--<div class="col-sm-5">-->
+                    <!--<input type="text" class="form-control" v-model="hotel.introduce"-->
+                           <!--placeholder="店铺介绍"/>-->
+                <!--</div>-->
                 <div class="col-sm-2 control-label">营业开始时间</div>
                 <div class="col-sm-5">
                     <input type="text" class="form-control" v-model="hotel.startime"
@@ -171,6 +206,20 @@
 
 
             <div class="form-group">
+                <div class="col-sm-2 control-label">店铺介绍</div>
+                <div class="col-sm-5">
+                    <!--<input type="text" class="form-control" v-model="hotel.introduce"-->
+                           <!--placeholder="店铺介绍"/>-->
+                    <!--<script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>-->
+                    <div>
+                        <script id="editor" name="content" type="text/plain">
+      就是试试
+    </script>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <div class="col-sm-2 control-label"></div>
                 <input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
                 &nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
@@ -192,8 +241,133 @@
 <script src="../../plugins/jqgrid/grid.locale-cn.js"></script>
 <script src="../../plugins/jqgrid/jquery.jqGrid.min.js"></script>
 <script src="../../plugins/ztree/jquery.ztree.all.min.js"></script>
+
+<!--ueditor-->
+<script type="text/javascript" src="../../plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="../../plugins/ueditor/ueditor.all.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+
+<script src="../../plugins/element/elementui.min.js"></script>
+
 <script src="../../js/common.js"></script>
 
 <script src="../../js/modules/hotel/hotel.js"></script>
+
+
+                    <script type="text/javascript">
+
+                        //实例化编辑器
+                        //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+                        var ue = UE.getEditor('editor');
+
+
+                        function isFocus(e){
+                            alert(UE.getEditor('editor').isFocus());
+                            UE.dom.domUtils.preventDefault(e)
+                        }
+                        function setblur(e){
+                            UE.getEditor('editor').blur();
+                            UE.dom.domUtils.preventDefault(e)
+                        }
+                        function insertHtml() {
+                            var value = prompt('插入html代码', '');
+                            UE.getEditor('editor').execCommand('insertHtml', value)
+                        }
+                        function createEditor() {
+                            enableBtn();
+                            UE.getEditor('editor');
+                        }
+                        function getAllHtml() {
+                            alert(UE.getEditor('editor').getAllHtml())
+                        }
+                        function getContent() {
+                            var arr = [];
+                            arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+                            arr.push("内容为：");
+                            arr.push(UE.getEditor('editor').getContent());
+                            alert(arr.join("\n"));
+                        }
+                        function getPlainTxt() {
+                            var arr = [];
+                            arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
+                            arr.push("内容为：");
+                            arr.push(UE.getEditor('editor').getPlainTxt());
+                            alert(arr.join('\n'))
+                        }
+                        function setContent(isAppendTo) {
+                            var arr = [];
+                            arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
+                            UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
+                            alert(arr.join("\n"));
+                        }
+                        function setDisabled() {
+                            UE.getEditor('editor').setDisabled('fullscreen');
+                            disableBtn("enable");
+                        }
+
+                        function setEnabled() {
+                            UE.getEditor('editor').setEnabled();
+                            enableBtn();
+                        }
+
+                        function getText() {
+                            //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
+                            var range = UE.getEditor('editor').selection.getRange();
+                            range.select();
+                            var txt = UE.getEditor('editor').selection.getText();
+                            alert(txt)
+                        }
+
+                        function getContentTxt() {
+                            var arr = [];
+                            arr.push("使用editor.getContentTxt()方法可以获得编辑器的纯文本内容");
+                            arr.push("编辑器的纯文本内容为：");
+                            arr.push(UE.getEditor('editor').getContentTxt());
+                            alert(arr.join("\n"));
+                        }
+                        function hasContent() {
+                            var arr = [];
+                            arr.push("使用editor.hasContents()方法判断编辑器里是否有内容");
+                            arr.push("判断结果为：");
+                            arr.push(UE.getEditor('editor').hasContents());
+                            alert(arr.join("\n"));
+                        }
+                        function setFocus() {
+                            UE.getEditor('editor').focus();
+                        }
+                        function deleteEditor() {
+                            disableBtn();
+                            UE.getEditor('editor').destroy();
+                        }
+                        function disableBtn(str) {
+                            var div = document.getElementById('btns');
+                            var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+                            for (var i = 0, btn; btn = btns[i++];) {
+                                if (btn.id == str) {
+                                    UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+                                } else {
+                                    btn.setAttribute("disabled", "true");
+                                }
+                            }
+                        }
+                        function enableBtn() {
+                            var div = document.getElementById('btns');
+                            var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+                            for (var i = 0, btn; btn = btns[i++];) {
+                                UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+                            }
+                        }
+
+                        function getLocalData () {
+                            alert(UE.getEditor('editor').execCommand( "getlocaldata" ));
+                        }
+
+                        function clearLocalData () {
+                            UE.getEditor('editor').execCommand( "clearlocaldata" );
+                            alert("已清空草稿箱")
+                        }
+                    </script>
+
 </body>
 </html>
