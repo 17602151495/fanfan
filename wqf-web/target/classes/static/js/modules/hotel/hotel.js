@@ -1,10 +1,30 @@
 $(function () {
     $("#table").BT({
-        url: baseURL + 'hotel/hmanagementtype/list',
+        url: baseURL + 'hotel/hotel/list',
         columns: [
             {checkbox: true},
-			{ title: '经营类型名字', field: 'tyname'},
-			{ title: '上级ID', field: 'pid'}
+			{ title: '店长ID', field: 'userid'}, 			
+			{ title: '店铺名字', field: 'name'}, 			
+			{ title: '联系电话', field: 'tel'}, 			
+			{ title: '店铺图片', field: 'hotelpic'}, 			
+			{ title: '店铺介绍', field: 'introduce'}, 			
+			{ title: '营业开始时间', field: 'startime'}, 			
+			{ title: '营业结束时间', field: 'endtime'}, 			
+			{ title: '省', field: 'province'}, 			
+			{ title: '市', field: 'city'}, 			
+			{ title: '县区', field: 'county'}, 			
+			{ title: '详细地址', field: 'address'}, 			
+			{ title: '经度', field: 'longitude'}, 			
+			{ title: '纬度', field: 'latitude'}, 			
+			{ title: '店铺分类（1饭店 2 酒店 3快餐店 4 食堂）', field: 'classification'}, 			
+			{ title: '经营类型（1烧烤香锅 2 休闲茶饮 3中餐地方 3.1 鲁菜）', field: 'mtype'}, 			
+			{ title: '级别 1 总店 2 分店 3 连锁店', field: 'level'}, 			
+			{ title: '经营状态（1营业中 2 暂停营业 3即将开业）', field: 'mstate'}, 			
+			{ title: '店铺状态 （正常 ，下线，欠费,违规） ', field: 'sta'}, 			
+			{ title: '', field: 'createTime'}, 			
+			{ title: '', field: 'updateTime'}, 			
+			{ title: '', field: 'createby'}, 			
+			{ title: '', field: 'updateby'}			
         ],
 		//条件查询
         queryParams:vm.params
@@ -19,7 +39,7 @@ var vm = new Vue({
 		params:{
 		    name:'',
 		},
-		hManagementType: {}
+		hotel: {}
 	},
 	methods: {
 		query: function () {
@@ -28,7 +48,7 @@ var vm = new Vue({
 		add: function(){
 			vm.showList = false;
 			vm.title = "新增";
-			vm.hManagementType = {};
+			vm.hotel = {};
 		},
 		update: function (event) {
            	var id = getSelectedRowId("id");
@@ -37,16 +57,16 @@ var vm = new Vue({
 			}
 			vm.showList = false;
             vm.title = "修改";
-
+            
             vm.getInfo(id)
 		},
 		saveOrUpdate: function (event) {
-			var url = vm.hManagementType.id == null ? "hotel/hmanagementtype/save" : "hotel/hmanagementtype/update";
+			var url = vm.hotel.id == null ? "hotel/hotel/save" : "hotel/hotel/update";
 			$.ajax({
 				type: "POST",
 			    url: baseURL + url,
                 contentType: "application/json",
-			    data: JSON.stringify(vm.hManagementType),
+			    data: JSON.stringify(vm.hotel),
 			    success: function(r){
 			    	if(r.code === 0){
 						alert('操作成功', function(index){
@@ -63,11 +83,11 @@ var vm = new Vue({
 			if(ids == null){
 				return ;
 			}
-
+			
 			confirm('确定要删除选中的记录？', function(){
 				$.ajax({
 					type: "POST",
-				    url: baseURL + "hotel/hmanagementtype/delete",
+				    url: baseURL + "hotel/hotel/delete",
                     contentType: "application/json",
 				    data: JSON.stringify(ids),
 				    success: function(r){
@@ -83,8 +103,8 @@ var vm = new Vue({
 			});
 		},
 		getInfo: function(id){
-			$.get(baseURL + "hotel/hmanagementtype/info/"+id, function(r){
-                vm.hManagementType = r.hManagementType;
+			$.get(baseURL + "hotel/hotel/info/"+id, function(r){
+                vm.hotel = r.hotel;
             });
 		},
 		reload: function (event) {

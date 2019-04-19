@@ -15,22 +15,22 @@ public class HManagementTypeEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
 	        //
-        private Integer id;
+        private Long id;
 	        //经营类型名字
         private String tyname;
 	        //上级ID
-        private Integer pid;
+        private Long pid;
 	
 	        /**
          * 设置：
          */
-        public void setId(Integer id) {
+        public void setId(Long id) {
             this.id = id;
         }
         /**
          * 获取：
          */
-        public Integer getId() {
+        public Long getId() {
             return id;
         }
 	        /**
@@ -48,13 +48,13 @@ public class HManagementTypeEntity implements Serializable {
 	        /**
          * 设置：上级ID
          */
-        public void setPid(Integer pid) {
+        public void setPid(Long pid) {
             this.pid = pid;
         }
         /**
          * 获取：上级ID
          */
-        public Integer getPid() {
+        public Long getPid() {
             return pid;
         }
 	}

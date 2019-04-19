@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wqf.imports.hotel.dao.HotelDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.wqf.imports.hotel.entity.HotelEntity" id="hotelMap">
+        <result property="id" column="id"/>
+        <result property="userid" column="userid"/>
+        <result property="name" column="name"/>
+        <result property="tel" column="tel"/>
+        <result property="hotelpic" column="hotelpic"/>
+        <result property="introduce" column="introduce"/>
+        <result property="startime" column="startime"/>
+        <result property="endtime" column="endtime"/>
+        <result property="province" column="province"/>
+        <result property="city" column="city"/>
+        <result property="county" column="county"/>
+        <result property="address" column="address"/>
+        <result property="longitude" column="longitude"/>
+        <result property="latitude" column="latitude"/>
+        <result property="classification" column="classification"/>
+        <result property="mtype" column="Mtype"/>
+        <result property="level" column="level"/>
+        <result property="mstate" column="Mstate"/>
+        <result property="sta" column="sta"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createby" column="createby"/>
+        <result property="updateby" column="updateby"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.wqf.imports.hotel.entity.HotelEntity">
+		SELECT * FROM hotel WHERE id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.wqf.imports.hotel.entity.HotelEntity">
+		SELECT * FROM hotel
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                ORDER BY ${sidx} ${order}
+            </when>
+			<otherwise>
+                ORDER BY id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			LIMIT #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		SELECT count(*) FROM hotel
+	</select>
+	 
+	<insert id="save" parameterType="com.wqf.imports.hotel.entity.HotelEntity" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO hotel
+		(
+																				`userid`, 
+																	`name`, 
+																	`tel`, 
+																	`hotelpic`, 
+																	`introduce`, 
+																	`startime`, 
+																	`endtime`, 
+																	`province`, 
+																	`city`, 
+																	`county`, 
+																	`address`, 
+																	`longitude`, 
+																	`latitude`, 
+																	`classification`, 
+																	`Mtype`, 
+																	`level`, 
+																	`Mstate`, 
+																	`sta`, 
+																	now(),
+																	now(),
+																	`createby`, 
+																	`updateby`
+									)
+		VALUES
+		(
+																				#{userid}, 
+																	#{name}, 
+																	#{tel}, 
+																	#{hotelpic}, 
+																	#{introduce}, 
+																	#{startime}, 
+																	#{endtime}, 
+																	#{province}, 
+																	#{city}, 
+																	#{county}, 
+																	#{address}, 
+																	#{longitude}, 
+																	#{latitude}, 
+																	#{classification}, 
+																	#{mtype}, 
+																	#{level}, 
+																	#{mstate}, 
+																	#{sta}, 
+																	#{createTime}, 
+																	#{updateTime}, 
+																	#{createby}, 
+																	#{updateby}
+									)
+	</insert>
+	 
+	<update id="update" parameterType="com.wqf.imports.hotel.entity.HotelEntity">
+		UPDATE hotel
+		<set>
+																				<if test="userid != null">`userid` = #{userid}, </if>
+																	<if test="name != null">`name` = #{name}, </if>
+																	<if test="tel != null">`tel` = #{tel}, </if>
+																	<if test="hotelpic != null">`hotelpic` = #{hotelpic}, </if>
+																	<if test="introduce != null">`introduce` = #{introduce}, </if>
+																	<if test="startime != null">`startime` = #{startime}, </if>
+																	<if test="endtime != null">`endtime` = #{endtime}, </if>
+																	<if test="province != null">`province` = #{province}, </if>
+																	<if test="city != null">`city` = #{city}, </if>
+																	<if test="county != null">`county` = #{county}, </if>
+																	<if test="address != null">`address` = #{address}, </if>
+																	<if test="longitude != null">`longitude` = #{longitude}, </if>
+																	<if test="latitude != null">`latitude` = #{latitude}, </if>
+																	<if test="classification != null">`classification` = #{classification}, </if>
+																	<if test="mtype != null">`Mtype` = #{mtype}, </if>
+																	<if test="level != null">`level` = #{level}, </if>
+																	<if test="mstate != null">`Mstate` = #{mstate}, </if>
+																	<if test="sta != null">`sta` = #{sta}, </if>
+																	<if test="createTime != null">`create_time` = #{createTime}, </if>
+																	<if test="updateTime != null">`update_time` = #{updateTime}, </if>
+																	<if test="createby != null">`createby` = #{createby}, </if>
+																	<if test="updateby != null">`updateby` = #{updateby}</if>
+									</set>
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM hotel WHERE id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		DELETE FROM hotel WHERE id IN
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

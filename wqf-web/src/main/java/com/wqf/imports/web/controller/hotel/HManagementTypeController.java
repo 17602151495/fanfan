@@ -44,7 +44,7 @@ public class HManagementTypeController extends AbstractController {
 
 		List<HManagementTypeEntity> hManagementTypeList = hManagementTypeService.queryList(query);
 		int total = hManagementTypeService.queryTotal(query);
-		
+
 		return R.page(hManagementTypeList,total);
 	}
 	

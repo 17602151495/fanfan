@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../plugins/bootstrap-validator/css/bootstrap-validator.min.css">
+    <link rel="stylesheet" href="../../plugins/ztree/css/metroStyle/metroStyle.css">
+    <link rel="stylesheet" href="../../css/main.css">
+
+</head>
+<body>
+<div id="rrapp" v-cloak>
+    <section class="content-header">
+        <h1>
+            &nbsp;<small v-if="title!=''">{{title}}</small>
+        </h1>
+    </section>
+    <div v-show="showList">
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header with-border">
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control" v-model="params.name" placeholder=""/>
+                            </div>
+                            <button class="btn btn-default m-left-5" @click="query"><i class="fa fa-plus"></i>&nbsp;查询
+                            </button>
+                            <button v-if="hasPermission('hotel:hotel:save')" class="btn btn-primary"
+                                    @click="add">
+                                <i class="fa fa-plus"></i>&nbsp;新增
+                            </button>
+                            <button v-if="hasPermission('hotel:hotel:update')" class="btn btn-warning"
+                                    @click="update">
+                                <i class="fa fa-trash-o"></i>&nbsp;修改
+                            </button>
+                            <button v-if="hasPermission('hotel:hotel:delete')" class="btn btn-danger"
+                                    @click="del">
+                                <i class="fa fa-trash-o"></i>&nbsp;删除
+                            </button>
+                        </div>
+                        <div class="box-body">
+                            <table id="table"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div v-show="!showList" class="panel panel-default">
+        <div class="panel-heading">{{title}}</div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-2 control-label">店长ID</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.userid"
+                           placeholder="店长ID"/>
+                </div>
+                <div class="col-sm-2 control-label">店铺名字</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.name"
+                           placeholder="店铺名字"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">联系电话</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.tel"
+                           placeholder="联系电话"/>
+                </div>
+                <div class="col-sm-2 control-label">店铺图片</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.hotelpic"
+                           placeholder="店铺图片"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">店铺介绍</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.introduce"
+                           placeholder="店铺介绍"/>
+                </div>
+                <div class="col-sm-2 control-label">营业开始时间</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.startime"
+                           placeholder="营业开始时间"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-2 control-label">营业结束时间</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.endtime"
+                           placeholder="营业结束时间"/>
+                </div>
+                <div class="col-sm-2 control-label">省</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.province"
+                           placeholder="省"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-2 control-label">市</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.city"
+                           placeholder="市"/>
+                </div>
+                <div class="col-sm-2 control-label">县区</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.county"
+                           placeholder="县区"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">详细地址</div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" v-model="hotel.address"
+                           placeholder="详细地址"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">经度</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.longitude"
+                           placeholder="经度"/>
+                </div>
+                <div class="col-sm-2 control-label">纬度</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.latitude"
+                           placeholder="纬度"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">店铺分类（1饭店 2 酒店 3快餐店 4 食堂）</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.classification"
+                           placeholder="店铺分类（1饭店 2 酒店 3快餐店 4 食堂）"/>
+                </div>
+                <div class="col-sm-2 control-label">经营类型（1烧烤香锅 2 休闲茶饮 3中餐地方 3.1 鲁菜）</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.mtype"
+                           placeholder="经营类型（1烧烤香锅 2 休闲茶饮 3中餐地方 3.1 鲁菜）"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">级别 1 总店 2 分店 3 连锁店</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.level"
+                           placeholder="级别 1 总店 2 分店 3 连锁店"/>
+                </div>
+                <div class="col-sm-2 control-label">经营状态（1营业中 2 暂停营业 3即将开业）</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.mstate"
+                           placeholder="经营状态（1营业中 2 暂停营业 3即将开业）"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">店铺状态 （正常 ，下线，欠费,违规）</div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" v-model="hotel.sta"
+                           placeholder="店铺状态 （正常 ，下线，欠费,违规） "/>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-2 control-label"></div>
+                <input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
+                &nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="../../libs/jquery.min.js"></script>
+<script src="../../plugins/layer/layer.js"></script>
+<script src="../../libs/bootstrap.min.js"></script>
+<script src="../../libs/vue.min.js"></script>
+<!--bootstrap-table-->
+<script src="../../plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+<!--bootstrap-validator-->
+<script src="../../plugins/bootstrap-validator/js/bootstrap-validator.min.js"></script>
+<script src="../../plugins/bootstrap-validator/js/zh_CN.min.js"></script>
+<script src="../../plugins/jqgrid/grid.locale-cn.js"></script>
+<script src="../../plugins/jqgrid/jquery.jqGrid.min.js"></script>
+<script src="../../plugins/ztree/jquery.ztree.all.min.js"></script>
+<script src="../../js/common.js"></script>
+
+<script src="../../js/modules/hotel/hotel.js"></script>
+</body>
+</html>

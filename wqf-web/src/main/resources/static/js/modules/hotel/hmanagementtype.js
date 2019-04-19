@@ -3,8 +3,8 @@ $(function () {
         url: baseURL + 'hotel/hmanagementtype/list',
         columns: [
             {checkbox: true},
-			{ title: '经营类型名字', field: 'tyname'}, 			
-			{ title: '上级ID', field: 'pid'}			
+			{ title: '经营类型名字', field: 'tyname'},
+			{ title: '上级ID', field: 'pid'}
         ],
 		//条件查询
         queryParams:vm.params
@@ -37,7 +37,7 @@ var vm = new Vue({
 			}
 			vm.showList = false;
             vm.title = "修改";
-            
+
             vm.getInfo(id)
 		},
 		saveOrUpdate: function (event) {
@@ -63,7 +63,7 @@ var vm = new Vue({
 			if(ids == null){
 				return ;
 			}
-			
+
 			confirm('确定要删除选中的记录？', function(){
 				$.ajax({
 					type: "POST",
