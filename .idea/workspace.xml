@@ -2,137 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52a0a1af-97a1-412f-bc2f-69ae938745c9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitmodules" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-generator/target/classes/com/wzlue/imports/generator/common/util/GenUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-generator/target/classes/com/wzlue/imports/generator/dao/SysGeneratorDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-generator/target/classes/com/wzlue/imports/generator/entity/ColumnEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-generator/target/classes/com/wzlue/imports/generator/entity/TableEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-generator/target/classes/com/wzlue/imports/generator/service/SysGeneratorService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-schedule/target/classes/com/wzlue/imports/schedule/common/util/ScheduleJob.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-schedule/target/classes/com/wzlue/imports/schedule/common/util/ScheduleRunnable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-schedule/target/classes/com/wzlue/imports/schedule/common/util/ScheduleUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-schedule/target/classes/com/wzlue/imports/schedule/dao/ScheduleJobDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-schedule/target/classes/com/wzlue/imports/schedule/dao/ScheduleJobLogDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-schedule/target/classes/com/wzlue/imports/schedule/entity/ScheduleJobEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-schedule/target/classes/com/wzlue/imports/schedule/entity/ScheduleJobLogEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-schedule/target/classes/com/wzlue/imports/schedule/service/ScheduleJobLogService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-schedule/target/classes/com/wzlue/imports/schedule/service/ScheduleJobService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-schedule/target/classes/com/wzlue/imports/schedule/service/impl/ScheduleJobLogServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-schedule/target/classes/com/wzlue/imports/schedule/service/impl/ScheduleJobServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-schedule/target/classes/com/wzlue/imports/schedule/task/StorageWarningTask.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/common/aspect/SysLogAspect.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/common/oauth2/OAuth2Filter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/common/oauth2/OAuth2Realm.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/common/oauth2/OAuth2Token.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/common/oauth2/TokenGenerator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/common/util/ShiroUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/common/util/SysConfigRedis.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/dao/AppUserDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/dao/ImageDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/dao/SysAreaDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/dao/SysConfigDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/dao/SysDeptDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/dao/SysDictDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/dao/SysLogDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/dao/SysMenuDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/dao/SysNumberRuleDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/dao/SysRoleDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/dao/SysRoleMenuDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/dao/SysUserDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/dao/SysUserRoleDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/dao/SysUserTokenDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/entity/AppUserEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/entity/ImageEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/entity/SysAreaEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/entity/SysConfigEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/entity/SysDeptEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/entity/SysDictEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/entity/SysLogEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/entity/SysMenuEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/entity/SysNumberRuleEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/entity/SysRoleEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/entity/SysRoleMenuEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/entity/SysUserEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/entity/SysUserRoleEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/entity/SysUserTokenEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/form/LoginForm.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/form/PasswordForm.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/AppUserService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/ImageService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/ShiroService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/SysAreaService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/SysConfigService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/SysDeptService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/SysDictService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/SysLogService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/SysMenuService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/SysNumberRuleService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/SysRoleMenuService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/SysRoleService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/SysUserRoleService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/SysUserService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/SysUserTokenService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/impl/ImageServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/impl/ShiroServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/impl/SysAreaServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/impl/SysConfigServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/impl/SysDeptServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/impl/SysDictServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/impl/SysLogServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/impl/SysMenuServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/impl/SysNumberRuleServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/impl/SysRoleMenuServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/impl/SysRoleServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/impl/SysUserRoleServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/impl/SysUserServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/impl/SysUserTokenServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/service/impl/UserServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/util/TreeNode.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-sys/target/classes/com/wzlue/imports/sys/util/TreeTransformUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wqf/imports/wqfApplication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/WzlueApplication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/common/config/FTPConfiguration$FtpClientPooledObjectFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/common/config/FTPConfiguration$FtpConfigProperties.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/common/config/FTPConfiguration.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/common/config/FilterConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/common/config/KaptchaConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/common/config/RedisConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/common/config/ScheduleConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/common/config/ShiroConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/common/config/SwaggerConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/common/datasources/DataSourceNames.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/common/datasources/DynamicDataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/common/datasources/DynamicDataSourceConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/common/datasources/annotation/DataSource.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/common/datasources/aspect/DataSourceAspect.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/common/filter/CorsConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/common/ApiFileDownloadController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/common/ApiFileUploadController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/common/ApiGetUUID.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/common/ApiUeditorController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/generator/SysGeneratorController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/hotel/HManagementTypeController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/schedule/ScheduleJobController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/schedule/ScheduleJobLogController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/sys/AbstractController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/sys/ImageController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/sys/SysAreaController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/sys/SysConfigController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/sys/SysDeptController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/sys/SysDictController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/sys/SysLogController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/sys/SysLoginController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/sys/SysMenuController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/sys/SysNumberRuleController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/sys/SysRoleController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wqf-web/target/classes/com/wzlue/imports/web/controller/sys/SysUserController.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wqf-common/target/classes/META-INF/spring-configuration-metadata.json" afterPath="$PROJECT_DIR$/wqf-common/target/classes/META-INF/spring-configuration-metadata.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wqf-web/src/main/resources/static/js/modules/hotel/hotel.js" afterPath="$PROJECT_DIR$/wqf-web/src/main/resources/static/js/modules/hotel/hotel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wqf-web/src/main/resources/views/modules/hotel/hotel.html" afterPath="$PROJECT_DIR$/wqf-web/src/main/resources/views/modules/hotel/hotel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wqf-web/target/classes/META-INF/spring-configuration-metadata.json" afterPath="$PROJECT_DIR$/wqf-web/target/classes/META-INF/spring-configuration-metadata.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wqf-web/target/classes/static/js/modules/hotel/hotel.js" afterPath="$PROJECT_DIR$/wqf-web/target/classes/static/js/modules/hotel/hotel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wqf-web/target/classes/views/modules/hotel/hotel.html" afterPath="$PROJECT_DIR$/wqf-web/target/classes/views/modules/hotel/hotel.html" />
     </list>
     <ignored path="$PROJECT_DIR$/wzlue-generator/target/" />
     <ignored path="$PROJECT_DIR$/wzlue-sys/target/" />
@@ -169,8 +39,8 @@
       <file leaf-file-name="hotel.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wqf-web/src/main/resources/views/modules/hotel/hotel.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+            <state relative-caret-position="162">
+              <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
@@ -677,12 +547,12 @@
       <updated>1555345464050</updated>
       <workItem from="1555345468482" duration="1226000" />
       <workItem from="1555425181216" duration="7528000" />
-      <workItem from="1555686851932" duration="6874000" />
+      <workItem from="1555686851932" duration="7177000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15628000" />
+    <option name="totallyTimeSpent" value="15931000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -696,7 +566,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.55978835" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -711,7 +581,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34074074" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34074074" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -972,8 +842,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wqf-web/src/main/resources/views/modules/hotel/hotel.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+        <state relative-caret-position="162">
+          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
           <folding>
             <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
