@@ -10,6 +10,13 @@
         <result property="pid" column="pid"/>
     </resultMap>
 
+
+	<select id="initlist" parameterType="long" resultType="map">
+		SELECT h.id id,h.tyname label FROM h_management_type h WHERE pid = #{pid}
+	</select>
+
+
+
 	<select id="queryObject" resultType="com.wqf.imports.hotel.entity.HManagementTypeEntity">
 		SELECT * FROM h_management_type WHERE id = #{value}
 	</select>

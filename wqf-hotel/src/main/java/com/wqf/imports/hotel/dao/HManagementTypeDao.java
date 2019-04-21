@@ -3,6 +3,10 @@ package com.wqf.imports.hotel.dao;
 import com.wqf.imports.hotel.entity.HManagementTypeEntity;
 import com.wqf.imports.common.base.BaseDao;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * 
@@ -13,5 +17,6 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface HManagementTypeDao extends BaseDao<HManagementTypeEntity> {
-	
+
+    List<Map> initlist(@Param("pid") Long pid);
 }

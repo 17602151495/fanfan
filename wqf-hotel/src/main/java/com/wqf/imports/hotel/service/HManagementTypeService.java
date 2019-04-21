@@ -15,6 +15,8 @@ import java.util.Map;
 public interface HManagementTypeService {
 	
 	HManagementTypeEntity queryObject(Integer id);
+
+	List<Map> initlist();
 	
 	List<HManagementTypeEntity> queryList(Map<String, Object> map);
 	

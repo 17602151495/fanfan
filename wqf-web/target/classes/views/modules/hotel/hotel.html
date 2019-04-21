@@ -28,11 +28,12 @@
         input[type=file] {
             display: none;
         }
+
     </style>
 
 </head>
-<body>
-<div id="rrapp" v-cloak>
+<body  style=" overflow:scroll; width:100%; height:1200px;">
+<div id="rrapp" v-cloak class="content-wrapper wzl-content-wrapper">
     <section class="content-header">
         <h1>
             &nbsp;<small v-if="title!=''">{{title}}</small>
@@ -71,7 +72,7 @@
         </section>
     </div>
 
-    <div v-show="!showList" class="panel panel-default">
+    <div v-show="!showList" class="panel panel-default" >
         <div class="panel-heading">{{title}}</div>
         <form class="form-horizontal">
 
@@ -97,124 +98,193 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-2 control-label">店长ID</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.userid"
-                           placeholder="店长ID"/>
+                <div class="col-sm-1 control-label">店长姓名</div>
+                <div class="col-sm-3">
+                    <!--<input type="text" class="form-control"-->
+                           <!--placeholder="店长姓名"/>-->
+                    <el-input  placeholder="请输入内容"></el-input>
                 </div>
-                <div class="col-sm-2 control-label">店铺名字</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.name"
-                           placeholder="店铺名字"/>
+                <div class="col-sm-1 control-label">店铺名字</div>
+                <div class="col-sm-3">
+                    <!--<input type="text" class="form-control" v-model="hotel.name"-->
+                           <!--placeholder="店铺名字"/>-->
+                    <el-input v-model="hotel.name" placeholder="请输入店铺名字"></el-input>
+                </div>
+                <div class="col-sm-1 control-label">联系电话</div>
+                <div class="col-sm-3">
+                    <!--<input type="text" class="form-control" v-model="hotel.tel"-->
+                           <!--placeholder="联系电话"/>-->
+                    <el-input v-model="hotel.tel" placeholder="请输入联系电话"></el-input>
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-2 control-label">联系电话</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.tel"
-                           placeholder="联系电话"/>
+
+                <div class="col-sm-1 control-label">经营类型</div>
+                <div class="col-sm-3">
+                    <!--<input type="text" class="form-control" :disabled="true" v-model="hotel.mtype"-->
+                           <!--placeholder=""/>-->
+                    <el-input
+                            placeholder="请选择经营类型"
+                            v-model="hotel.mtype"
+                            :disabled="true">
+                    </el-input>
+                    <el-button v-popover:popover5>请选择经营类型</el-button>
+                    <el-popover
+                            ref="popover5"
+                            placement="top"
+                            width="160"
+                            v-model="visible2">
+                        <el-tree
+                                :data="mtype"
+                                show-checkbox
+                                node-key="id"
+                                :default-expanded-keys="[2, 3]"
+                                :default-checked-keys="[5]"
+                                :props="defaultProps">
+                        </el-tree>
+
+                        <div style="text-align: right; margin: 0">
+                            <el-button size="mini" type="text" @click="visible2 = false">取消</el-button>
+                            <el-button type="primary" size="mini" @click="visible2 = false">确定</el-button>
+                        </div>
+                    </el-popover>
+
+
+                </div>
+
+
+                <div class="col-sm-1 control-label">店铺状态</div>
+                <div class="col-sm-3">
+                    <el-select v-model="hotel.sta" clearable placeholder="请选择">
+                        <el-option
+                                v-for="item in sta"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                        </el-option>
+                    </el-select>
+                    <!--<input type="text" class="form-control" v-model="hotel.sta"-->
+                    <!--placeholder="店铺状态 （正常 ，下线，欠费,违规） "/>-->
+                </div>
+                <div class="col-sm-1 control-label">营业时间</div>
+                <div class="col-sm-3">
+                    <el-time-picker
+                            v-model="hotel.startime"
+                            :picker-options="{selectableRange: '18:30:00 - 20:30:00'}"
+                            placeholder="开始时间">
+                    </el-time-picker>
+                    <el-time-picker
+                            arrow-control
+                            v-model="hotel.endtime"
+                            :picker-options="{selectableRange: '18:30:00 - 20:30:00'}"
+                            placeholder="结束时间">
+                    </el-time-picker>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-1 control-label">店铺性质</div>
+                <div class="col-sm-3">
+                    <!--<input type="text" class="form-control" v-model="hotel.level"-->
+                           <!--placeholder="级别 1 总店 2 分店 3 连锁店"/>-->
+                    <el-select v-model="hotel.level" clearable placeholder="请选择">
+                        <el-option
+                                v-for="item in level"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                        </el-option>
+                    </el-select>
+                </div>
+                <div class="col-sm-1 control-label">经营状态</div>
+                <div class="col-sm-3">
+                    <el-select v-model="hotel.mstate" clearable placeholder="请选择">
+                        <el-option
+                                v-for="item in mstate"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                        </el-option>
+                    </el-select>
+                    <!--<input type="text" class="form-control" v-model="hotel.mstate"-->
+                           <!--placeholder="经营状态（1营业中 2 暂停营业 3即将开业）"/>-->
+                </div>
+                <div class="col-sm-1 control-label">店铺分类</div>
+                <div class="col-sm-3">
+                    <el-select v-model="hotel.classification" clearable placeholder="请选择">
+                        <el-option
+                                v-for="item in classification"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                        </el-option>
+                    </el-select>
+                    <!--<input type="text" class="form-control" v-model="hotel.classification"-->
+                           <!--placeholder="店铺分类（1饭店 2 酒店 3快餐店 4 食堂）"/>-->
                 </div>
             </div>
             <div class="form-group">
-                <!--<div class="col-sm-2 control-label">店铺介绍</div>-->
-                <!--<div class="col-sm-5">-->
-                    <!--<input type="text" class="form-control" v-model="hotel.introduce"-->
-                           <!--placeholder="店铺介绍"/>-->
+                <div class="col-sm-1 control-label">位置选择</div>
+                <div class="col-sm-10 control-label">
+                    <div id="allmap" style="height:450px;width:1600px"></div>
+                </div>
+            </div>
+
+            <!--<div class="form-group">-->
+                <!--<div class="col-sm-1 control-label">省</div>-->
+                <!--<div class="col-sm-3">-->
+                    <!--<input type="text" class="form-control" v-model="hotel.province"-->
+                           <!--placeholder="省"/>-->
                 <!--</div>-->
-                <div class="col-sm-2 control-label">营业开始时间</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.startime"
-                           placeholder="营业开始时间"/>
-                </div>
-            </div>
 
+                <!--<div class="col-sm-1 control-label">市</div>-->
+                <!--<div class="col-sm-3">-->
+                    <!--<input type="text" class="form-control" v-model="hotel.city"-->
+                           <!--placeholder="市"/>-->
+                <!--</div>-->
+                <!--<div class="col-sm-1 control-label">县区</div>-->
+                <!--<div class="col-sm-3">-->
+                    <!--<input type="text" class="form-control" v-model="hotel.county"-->
+                           <!--placeholder="县区"/>-->
+                <!--</div>-->
+            <!--</div>-->
             <div class="form-group">
-                <div class="col-sm-2 control-label">营业结束时间</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.endtime"
-                           placeholder="营业结束时间"/>
-                </div>
-                <div class="col-sm-2 control-label">省</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.province"
-                           placeholder="省"/>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-sm-2 control-label">市</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.city"
-                           placeholder="市"/>
-                </div>
-                <div class="col-sm-2 control-label">县区</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.county"
-                           placeholder="县区"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-2 control-label">详细地址</div>
+                <div class="col-sm-1 control-label">详细地址</div>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" v-model="hotel.address"
-                           placeholder="详细地址"/>
+                    <!--<input type="text" class="form-control" v-model="hotel.address"-->
+                           <!--placeholder="详细地址"/>-->
+                    <el-input v-model="hotel.address" placeholder="请输入联系电话"></el-input>
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-2 control-label">经度</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.longitude"
+                <!--<div class="col-sm-1 control-label">经度</div>-->
+                <div class="col-sm-3">
+                    <input type="hidden" class="form-control" v-model="hotel.longitude"
                            placeholder="经度"/>
                 </div>
-                <div class="col-sm-2 control-label">纬度</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.latitude"
+                <!--<div class="col-sm-1 control-label">纬度</div>-->
+                <div class="col-sm-3">
+                    <input type="hidden" class="form-control" v-model="hotel.latitude"
                            placeholder="纬度"/>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="col-sm-2 control-label">店铺分类（1饭店 2 酒店 3快餐店 4 食堂）</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.classification"
-                           placeholder="店铺分类（1饭店 2 酒店 3快餐店 4 食堂）"/>
-                </div>
-                <div class="col-sm-2 control-label">经营类型（1烧烤香锅 2 休闲茶饮 3中餐地方 3.1 鲁菜）</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.mtype"
-                           placeholder="经营类型（1烧烤香锅 2 休闲茶饮 3中餐地方 3.1 鲁菜）"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-2 control-label">级别 1 总店 2 分店 3 连锁店</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.level"
-                           placeholder="级别 1 总店 2 分店 3 连锁店"/>
-                </div>
-                <div class="col-sm-2 control-label">经营状态（1营业中 2 暂停营业 3即将开业）</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.mstate"
-                           placeholder="经营状态（1营业中 2 暂停营业 3即将开业）"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-2 control-label">店铺状态 （正常 ，下线，欠费,违规）</div>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" v-model="hotel.sta"
-                           placeholder="店铺状态 （正常 ，下线，欠费,违规） "/>
-                </div>
-            </div>
+
+
 
 
             <div class="form-group">
+                <!--<div class="col-sm-2 control-label">店铺介绍</div>-->
+                <!--<div class="col-sm-5">-->
+                <!--<input type="text" class="form-control" v-model="hotel.introduce"-->
+                <!--placeholder="店铺介绍"/>-->
+                <!--</div>-->
                 <div class="col-sm-2 control-label">店铺介绍</div>
-                <div class="col-sm-5">
+                <div class="col-sm-10">
                     <!--<input type="text" class="form-control" v-model="hotel.introduce"-->
                            <!--placeholder="店铺介绍"/>-->
-                    <!--<script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>-->
                     <div>
-                        <script id="editor" name="content" type="text/plain">
-      就是试试
-    </script>
+                        <script id="editor" name="content" type="text/plain">请输入店铺介绍</script>
                     </div>
                 </div>
             </div>
@@ -246,6 +316,8 @@
 <script type="text/javascript" src="../../plugins/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" src="../../plugins/ueditor/ueditor.all.js"></script>
 <script type="text/javascript" charset="utf-8" src="../../plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<!--百度地图-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=RTDDWSd1MC6MmWOHc83cM6CTLaIbadBu"></script>
 
 
 <script src="../../plugins/element/elementui.min.js"></script>
@@ -253,121 +325,6 @@
 <script src="../../js/common.js"></script>
 
 <script src="../../js/modules/hotel/hotel.js"></script>
-
-
-                    <script type="text/javascript">
-
-                        //实例化编辑器
-                        //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
-                        var ue = UE.getEditor('editor');
-
-
-                        function isFocus(e){
-                            alert(UE.getEditor('editor').isFocus());
-                            UE.dom.domUtils.preventDefault(e)
-                        }
-                        function setblur(e){
-                            UE.getEditor('editor').blur();
-                            UE.dom.domUtils.preventDefault(e)
-                        }
-                        function insertHtml() {
-                            var value = prompt('插入html代码', '');
-                            UE.getEditor('editor').execCommand('insertHtml', value)
-                        }
-                        function createEditor() {
-                            enableBtn();
-                            UE.getEditor('editor');
-                        }
-                        function getAllHtml() {
-                            alert(UE.getEditor('editor').getAllHtml())
-                        }
-                        function getContent() {
-                            var arr = [];
-                            arr.push("使用editor.getContent()方法可以获得编辑器的内容");
-                            arr.push("内容为：");
-                            arr.push(UE.getEditor('editor').getContent());
-                            alert(arr.join("\n"));
-                        }
-                        function getPlainTxt() {
-                            var arr = [];
-                            arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
-                            arr.push("内容为：");
-                            arr.push(UE.getEditor('editor').getPlainTxt());
-                            alert(arr.join('\n'))
-                        }
-                        function setContent(isAppendTo) {
-                            var arr = [];
-                            arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
-                            UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
-                            alert(arr.join("\n"));
-                        }
-                        function setDisabled() {
-                            UE.getEditor('editor').setDisabled('fullscreen');
-                            disableBtn("enable");
-                        }
-
-                        function setEnabled() {
-                            UE.getEditor('editor').setEnabled();
-                            enableBtn();
-                        }
-
-                        function getText() {
-                            //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
-                            var range = UE.getEditor('editor').selection.getRange();
-                            range.select();
-                            var txt = UE.getEditor('editor').selection.getText();
-                            alert(txt)
-                        }
-
-                        function getContentTxt() {
-                            var arr = [];
-                            arr.push("使用editor.getContentTxt()方法可以获得编辑器的纯文本内容");
-                            arr.push("编辑器的纯文本内容为：");
-                            arr.push(UE.getEditor('editor').getContentTxt());
-                            alert(arr.join("\n"));
-                        }
-                        function hasContent() {
-                            var arr = [];
-                            arr.push("使用editor.hasContents()方法判断编辑器里是否有内容");
-                            arr.push("判断结果为：");
-                            arr.push(UE.getEditor('editor').hasContents());
-                            alert(arr.join("\n"));
-                        }
-                        function setFocus() {
-                            UE.getEditor('editor').focus();
-                        }
-                        function deleteEditor() {
-                            disableBtn();
-                            UE.getEditor('editor').destroy();
-                        }
-                        function disableBtn(str) {
-                            var div = document.getElementById('btns');
-                            var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
-                            for (var i = 0, btn; btn = btns[i++];) {
-                                if (btn.id == str) {
-                                    UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
-                                } else {
-                                    btn.setAttribute("disabled", "true");
-                                }
-                            }
-                        }
-                        function enableBtn() {
-                            var div = document.getElementById('btns');
-                            var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
-                            for (var i = 0, btn; btn = btns[i++];) {
-                                UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
-                            }
-                        }
-
-                        function getLocalData () {
-                            alert(UE.getEditor('editor').execCommand( "getlocaldata" ));
-                        }
-
-                        function clearLocalData () {
-                            UE.getEditor('editor').execCommand( "clearlocaldata" );
-                            alert("已清空草稿箱")
-                        }
-                    </script>
 
 </body>
 </html>

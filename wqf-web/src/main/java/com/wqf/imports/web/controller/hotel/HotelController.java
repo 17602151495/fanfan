@@ -34,7 +34,7 @@ import com.wqf.imports.common.base.R;
 public class HotelController extends AbstractController {
 	@Autowired
 	private HotelService hotelService;
-	
+
 	/**
 	 * 列表
 	 */

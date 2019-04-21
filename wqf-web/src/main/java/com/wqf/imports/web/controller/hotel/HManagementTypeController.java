@@ -33,7 +33,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class HManagementTypeController extends AbstractController {
 	@Autowired
 	private HManagementTypeService hManagementTypeService;
-	
+
+	/**
+	 * 列表
+	 */
+	@RequestMapping("/init")
+	public R init(){
+		//查询列表数据
+
+		List<Map> hManagementTypeList = hManagementTypeService.initlist();
+		return R.ok().put("data",hManagementTypeList);
+	}
+
+
 	/**
 	 * 列表
 	 */
